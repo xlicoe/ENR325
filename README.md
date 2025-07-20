@@ -1,2 +1,2 @@
 # ENR325
-Princ of Digital Electronics (ENR 325 / ENR 325L), debut 2025 Fall
+This is the repo for Principles of Digital Electronics (ENR 325 / ENR 325L), debut 2025 Fall
