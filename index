@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Page Title -->
-    <title>[Course Code]: [ENR325] | [Coe College]</title>
+    <title>ENR325: Princ of Digital Electronics | Coe College</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,8 +27,8 @@
     <!-- Header Section -->
     <header class="bg-white shadow-md">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <h1 class="text-3xl font-bold text-gray-900">[Your Course Code] - [Your Course Name]</h1>
-            <p class="mt-1 text-lg text-gray-600">[Your University/Department Name]</p>
+            <h1 class="text-3xl font-bold text-gray-900">ENR325 - Princ of Digital Electronics</h1>
+            <p class="mt-1 text-lg text-gray-600">Coe College</p>
         </div>
     </header>
 
@@ -41,10 +41,10 @@
             <div class="bg-white p-6 rounded-lg shadow-sm space-y-4 text-gray-700">
                 <p>
                     <!-- Add a brief, engaging description of your course here. -->
-                    Welcome to ENR325! This course serves as an introduction to the Principles of Digital Electronics. Over the semester, we are going to relive the days when brilliant physicists and mathematicians built something almost magical, and brought us the last two industrial revolutions.
+                    Welcome to ENR325! Over the semester, we are going to relive the days when brilliant physicists and mathematicians built something almost magical, and brought us the last two industrial revolutions.
                 </p>
                 <p>
-                    This website will be your primary resource for the course schedule, lecture notes, and important announcements. Please check it regularly.
+                    This website will be one of your primary resources for the course schedule, lecture notes, and important announcements. Please check it regularly.
                 </p>
             </div>
         </section>
@@ -55,7 +55,7 @@
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <!-- Syllabus Download Button -->
                 <div class="mb-6">
-                    <a href="syllabus.pdf" 
+                    <a href="https://github.com/xlicoe/ENR325/blob/main/Princ%20of%20Digital%20Electronics%20ENR%20325%20v3%20short.pdf" 
                        class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow"
                        target="_blank"> <!-- Use target="_blank" to open in a new tab -->
                        Download Full Syllabus (PDF)
@@ -66,32 +66,77 @@
                     </p>
                 </div>
 
-                <!-- Weekly Schedule Table -->
+                <!-- Course Schedule Table -->
                 <div class="overflow-x-auto">
                     <table class="min-w-full text-left">
                         <thead class="bg-gray-100">
                             <tr>
-                                <th class="px-6 py-3 font-semibold">Week</th>
+                                <th class="px-6 py-3 font-semibold">Episodes</th>
                                 <th class="px-6 py-3 font-semibold">Topic</th>
-                                <th class="px-6 py-3 font-semibold">Readings & Assignments</th>
+                                <th class="px-6 py-3 font-semibold">Assignments</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Add a new table row <tr> for each week of the course -->
                             <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">Week 1</td>
-                                <td class="px-6 py-4">Introduction to [Your Subject]</td>
-                                <td class="px-6 py-4">Chapter 1; Assignment 1 Due Friday</td>
+                                <td class="px-6 py-4 font-medium">EP 1</td>
+                                <td class="px-6 py-4">Digital and Information Systems</td>
+                                <td class="px-6 py-4">Assignment 1</td>
                             </tr>
                             <tr class="border-b bg-gray-50">
-                                <td class="px-6 py-4 font-medium">Week 2</td>
-                                <td class="px-6 py-4">[Topic 1]</td>
-                                <td class="px-6 py-4">Chapter 2; Read article [Link to Article]</td>
+                                <td class="px-6 py-4 font-medium">EP 2</td>
+                                <td class="px-6 py-4">The Information Theory</td>
+                                <td class="px-6 py-4">Assignment 2</td>
                             </tr>
                             <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">Week 3</td>
-                                <td class="px-6 py-4">[Topic 2]</td>
-                                <td class="px-6 py-4">Chapter 3-4</td>
+                                <td class="px-6 py-4 font-medium">EP 3</td>
+                                <td class="px-6 py-4">Coding Systems</td>
+                                <td class="px-6 py-4">Assignment 3</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 4</td>
+                                <td class="px-6 py-4">The Form of Data </td>
+                                <td class="px-6 py-4">Assignment 4</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 5</td>
+                                <td class="px-6 py-4">Data Manipulation</td>
+                                <td class="px-6 py-4">Assignment 5</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 6</td>
+                                <td class="px-6 py-4">The Interface Theory, part 1</td>
+                                <td class="px-6 py-4">Assignment 6</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 7</td>
+                                <td class="px-6 py-4">The Interface Theory, part 2</td>
+                                <td class="px-6 py-4">Assignment 7</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 8</td>
+                                <td class="px-6 py-4">There's Plenty of Room at the Bottom</td>
+                                <td class="px-6 py-4">Assignment 8</td>
+                            </tr>
+                             <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 9</td>
+                                <td class="px-6 py-4">C is for Complementary</td>
+                                <td class="px-6 py-4">Assignment 9</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 10</td>
+                                <td class="px-6 py-4">Programmable Logic</td>
+                                <td class="px-6 py-4">Assignment 10</td>
+                            </tr>
+                              <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 11</td>
+                                <td class="px-6 py-4">System on a Chip</td>
+                                <td class="px-6 py-4">Assignment 11</td>
+                            </tr>
+                               <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">EP 12</td>
+                                <td class="px-6 py-4">The Internet of Things</td>
+                                <td class="px-6 py-4">Assignment 12</td>
                             </tr>
                             <!-- ... add more weeks as needed ... -->
                         </tbody>
@@ -106,10 +151,10 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Instructor Card -->
                 <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold mb-2">[Your Name]</h3>
-                    <p class="text-gray-600"><strong>Email:</strong> <a href="mailto:your.email@university.edu" class="text-blue-600 hover:underline">your.email@university.edu</a></p>
-                    <p class="text-gray-600"><strong>Office:</strong> [Your Office Location]</p>
-                    <p class="text-gray-600"><strong>Office Hours:</strong> [e.g., Mondays 10-11am, Wednesdays 2-3pm]</p>
+                    <h3 class="text-xl font-semibold mb-2">Xiang Li</h3>
+                    <p class="text-gray-600"><strong>Email:</strong> <a href="mailto:your.email@university.edu" class="text-blue-600 hover:underline">xili@coe.edu</a></p>
+                    <p class="text-gray-600"><strong>Office:</strong> TBD </p>
+                    <p class="text-gray-600"><strong>Office Hours:</strong> Tuesday 9am-12pm, Friday 9am-12pm</p>
                 </div>
                
             </div>
@@ -120,7 +165,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-12">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center">
-            <p>&copy; 2024 [Your University Name]. All Rights Reserved.</p>
+            <p>&copy; 2025 Coe College. All Rights Reserved.</p>
         </div>
     </footer>
 
