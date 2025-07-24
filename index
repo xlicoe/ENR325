@@ -111,14 +111,7 @@
                     <p class="text-gray-600"><strong>Office:</strong> [Your Office Location]</p>
                     <p class="text-gray-600"><strong>Office Hours:</strong> [e.g., Mondays 10-11am, Wednesdays 2-3pm]</p>
                 </div>
-                <!-- TA Card (optional) -->
-                <!-- If you have a TA, you can duplicate the card above for them. If not, you can delete this card. -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 class="text-xl font-semibold mb-2">[TA Name] (if applicable)</h3>
-                    <p class="text-gray-600"><strong>Email:</strong> <a href="mailto:ta.email@university.edu" class="text-blue-600 hover:underline">ta.email@university.edu</a></p>
-                    <p class="text-gray-600"><strong>Office:</strong> [TA Office Location]</p>
-                    <p class="text-gray-600"><strong>Office Hours:</strong> [TA Office Hours]</p>
-                </div>
+               
             </div>
         </section>
 
