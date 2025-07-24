@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page Title -->
+    <title>[Course Code]: [ENR325] | [Coe College]</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <h1 class="text-3xl font-bold text-gray-900">[Your Course Code] - [Your Course Name]</h1>
+            <p class="mt-1 text-lg text-gray-600">[Your University/Department Name]</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <!-- Course Description Section -->
+        <section id="description" class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Welcome!</h2>
+            <div class="bg-white p-6 rounded-lg shadow-sm space-y-4 text-gray-700">
+                <p>
+                    <!-- Add a brief, engaging description of your course here. -->
+                    Welcome to ENR325! This course serves as an introduction to the Principles of Digital Electronics. Over the semester, we are going to relive the days when brilliant physicists and mathematicians built something almost magical, and brought us the last two industrial revolutions.
+                </p>
+                <p>
+                    This website will be your primary resource for the course schedule, lecture notes, and important announcements. Please check it regularly.
+                </p>
+            </div>
+        </section>
+
+        <!-- Syllabus & Schedule Section -->
+        <section id="schedule" class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Syllabus & Schedule</h2>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <!-- Syllabus Download Button -->
+                <div class="mb-6">
+                    <a href="syllabus.pdf" 
+                       class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow"
+                       target="_blank"> <!-- Use target="_blank" to open in a new tab -->
+                       Download Full Syllabus (PDF)
+                    </a>
+                    <p class="text-sm mt-2 text-gray-500">
+                        <!-- Make sure you upload a file named 'syllabus.pdf' to your repository -->
+                        The full syllabus contains detailed information on grading, policies, and learning outcomes.
+                    </p>
+                </div>
+
+                <!-- Weekly Schedule Table -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-left">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-6 py-3 font-semibold">Week</th>
+                                <th class="px-6 py-3 font-semibold">Topic</th>
+                                <th class="px-6 py-3 font-semibold">Readings & Assignments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Add a new table row <tr> for each week of the course -->
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">Week 1</td>
+                                <td class="px-6 py-4">Introduction to [Your Subject]</td>
+                                <td class="px-6 py-4">Chapter 1; Assignment 1 Due Friday</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="px-6 py-4 font-medium">Week 2</td>
+                                <td class="px-6 py-4">[Topic 1]</td>
+                                <td class="px-6 py-4">Chapter 2; Read article [Link to Article]</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium">Week 3</td>
+                                <td class="px-6 py-4">[Topic 2]</td>
+                                <td class="px-6 py-4">Chapter 3-4</td>
+                            </tr>
+                            <!-- ... add more weeks as needed ... -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instructor & TA Information -->
+        <section id="contact" class="mb-12">
+            <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Instructor Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Instructor Card -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-2">[Your Name]</h3>
+                    <p class="text-gray-600"><strong>Email:</strong> <a href="mailto:your.email@university.edu" class="text-blue-600 hover:underline">your.email@university.edu</a></p>
+                    <p class="text-gray-600"><strong>Office:</strong> [Your Office Location]</p>
+                    <p class="text-gray-600"><strong>Office Hours:</strong> [e.g., Mondays 10-11am, Wednesdays 2-3pm]</p>
+                </div>
+                <!-- TA Card (optional) -->
+                <!-- If you have a TA, you can duplicate the card above for them. If not, you can delete this card. -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold mb-2">[TA Name] (if applicable)</h3>
+                    <p class="text-gray-600"><strong>Email:</strong> <a href="mailto:ta.email@university.edu" class="text-blue-600 hover:underline">ta.email@university.edu</a></p>
+                    <p class="text-gray-600"><strong>Office:</strong> [TA Office Location]</p>
+                    <p class="text-gray-600"><strong>Office Hours:</strong> [TA Office Hours]</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center">
+            <p>&copy; 2024 [Your University Name]. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
