@@ -21,7 +21,6 @@
         summary {
             cursor: pointer;
             display: block;
-            padding: 0.5rem 0;
         }
         details > summary::-webkit-details-marker {
             display: none;
@@ -62,103 +61,199 @@
 
         <section id="schedule" class="mb-12">
             <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Syllabus & Schedule</h2>
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-                <div class="mb-6">
-                    <a href="ENR325-Syllabus.pdf" 
-                       class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow"
-                       target="_blank"> Download Full Syllabus (PDF)
-                    </a>
+            <div class="bg-white p-6 rounded-lg shadow-sm space-y-4">
+                <div class="mb-4">
+                    <div class="flex flex-wrap gap-4">
+                        <a href="ENR325-Syllabus.pdf" 
+                           class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow"
+                           target="_blank"> Download Full Syllabus (PDF)
+                        </a>
+                        <a href="https://coewinmoodle.coe.edu/moodle/course/view.php?id=4633" 
+                           class="inline-block bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-700 transition-colors shadow"
+                           target="_blank"> Upload Assignments to Moodle
+                        </a>
+                    </div>
                     <p class="text-sm mt-2 text-gray-500">
-                        The full syllabus contains detailed information on grading, policies, and learning outcomes.
+                        Use the links above to download the syllabus or submit your work on Moodle.
                     </p>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="min-w-full text-left">
-                        <thead class="bg-gray-100">
-                            <tr>
-                                <th class="px-6 py-3 font-semibold">Episodes</th>
-                                <th class="px-6 py-3 font-semibold">Topic</th>
-                                <th class="px-6 py-3 font-semibold">Slides</th>
-                                <th class="px-6 py-3 font-semibold">Assignments</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 1</td>
-                                <td class="px-6 py-4">Digital and Information Systems</td>
-                                <td class="px-6 py-4"><a href="lesson-slides/ENR325-EP1v2.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 1</a></td>
-                                <td class="px-6 py-4"><a href="assignment1.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 1</a></td>
-                            </tr>
-                            <tr class="border-b bg-gray-50">
-                                <td class="px-6 py-4 font-medium">EP 2</td>
-                                <td class="px-6 py-4">The Information Theory</td>
-                                <td class="px-6 py-4"><a href="slides_ep2.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 2</a></td>
-                                <td class="px-6 py-4"><a href="assignment2.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 2</a></td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 3</td>
-                                <td class="px-6 py-4">Coding Systems</td>
-                                <td class="px-6 py-4"><a href="slides_ep3.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 3</a></td>
-                                <td class="px-6 py-4"><a href="assignment3.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 3</a></td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 4</td>
-                                <td class="px-6 py-4">The Form of Data </td>
-                                <td class="px-6 py-4"><a href="slides_ep4.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 4</a></td>
-                                <td class="px-6 py-4"><a href="assignment4.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 4</a></td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 5</td>
-                                <td class="px-6 py-4">Data Pusher</td>
-                                <td class="px-6 py-4"><a href="slides_ep5.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 5</a></td>
-                                <td class="px-6 py-4"><a href="assignment5.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 5</a></td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 6</td>
-                                <td class="px-6 py-4">The Interface Theory, part 1</td>
-                                <td class="px-6 py-4"><a href="slides_ep6.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 6</a></td>
-                                <td class="px-6 py-4"><a href="assignment6.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 6</a></td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 7</td>
-                                <td class="px-6 py-4">The Interface Theory, part 2</td>
-                                <td class="px-6 py-4"><a href="slides_ep7.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 7</a></td>
-                                <td class="px-6 py-4"><a href="assignment7.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 7</a></td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 8</td>
-                                <td class="px-6 py-4">There's Plenty of Room at the Bottom</td>
-                                <td class="px-6 py-4"><a href="slides_ep8.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 8</a></td>
-                                <td class="px-6 py-4"><a href="assignment8.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 8</a></td>
-                            </tr>
-                             <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 9</td>
-                                <td class="px-6 py-4">C is for Complementary</td>
-                                <td class="px-6 py-4"><a href="slides_ep9.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 9</a></td>
-                                <td class="px-6 py-4"><a href="assignment9.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 9</a></td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 10</td>
-                                <td class="px-6 py-4">Programmable Logic</td>
-                                <td class="px-6 py-4"><a href="slides_ep10.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 10</a></td>
-                                <td class="px-6 py-4"><a href="assignment10.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 10</a></td>
-                            </tr>
-                             <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 11</td>
-                                <td class="px-6 py-4">System on a Chip</td>
-                                <td class="px-6 py-4"><a href="slides_ep11.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 11</a></td>
-                                <td class="px-6 py-4"><a href="assignment11.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 11</a></td>
-                            </tr>
-                               <tr class="border-b">
-                                <td class="px-6 py-4 font-medium">EP 12</td>
-                                <td class="px-6 py-4">The Internet of Things</td>
-                                <td class="px-6 py-4"><a href="slides_ep12.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 12</a></td>
-                                <td class="px-6 py-4"><a href="assignment12.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 12</a></td>
-                            </tr>
+                <!-- Module 1: Digital and information system -->
+                <details class="border rounded-lg" open>
+                    <summary class="font-semibold text-lg p-4 bg-gray-100 hover:bg-gray-200 rounded-t-lg">
+                        Module 1: Digital and information system
+                    </summary>
+                    <div class="overflow-x-auto border-t">
+                        <table class="min-w-full text-left table-fixed">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 font-semibold w-1/6">Episodes</th>
+                                    <th class="px-6 py-3 font-semibold">Topic</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Slides</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Assignments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4 font-medium">EP 1</td>
+                                    <td class="px-6 py-4">Digital and Information Systems</td>
+                                    <td class="px-6 py-4"><a href="lesson-slides/ENR325-EP1v2.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 1</a></td>
+                                    <td class="px-6 py-4"><a href="assignment1.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 1</a></td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="px-6 py-4 font-medium">EP 2</td>
+                                    <td class="px-6 py-4">The Information Theory</td>
+                                    <td class="px-6 py-4"><a href="slides_ep2.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 2</a></td>
+                                    <td class="px-6 py-4"><a href="assignment2.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 2</a></td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4 font-medium">EP 3</td>
+                                    <td class="px-6 py-4">Coding Systems</td>
+                                    <td class="px-6 py-4"><a href="slides_ep3.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 3</a></td>
+                                    <td class="px-6 py-4"><a href="assignment3.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 3</a></td>
+                                </tr>
                             </tbody>
-                    </table>
-                </div>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Module 2: Logic circuits and interface design -->
+                <details class="border rounded-lg" open>
+                    <summary class="font-semibold text-lg p-4 bg-gray-100 hover:bg-gray-200 rounded-t-lg">
+                        Module 2: Logic circuits and interface design
+                    </summary>
+                    <div class="overflow-x-auto border-t">
+                        <table class="min-w-full text-left table-fixed">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 font-semibold w-1/6">Episodes</th>
+                                    <th class="px-6 py-3 font-semibold">Topic</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Slides</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Assignments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4 font-medium">EP 4</td>
+                                    <td class="px-6 py-4">The Form of Data</td>
+                                    <td class="px-6 py-4"><a href="slides_ep4.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 4</a></td>
+                                    <td class="px-6 py-4"><a href="assignment4.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 4</a></td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="px-6 py-4 font-medium">EP 5</td>
+                                    <td class="px-6 py-4">Data Pusher</td>
+                                    <td class="px-6 py-4"><a href="slides_ep5.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 5</a></td>
+                                    <td class="px-6 py-4"><a href="assignment5.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 5</a></td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4 font-medium">EP 6</td>
+                                    <td class="px-6 py-4">The Interface Theory, part 1</td>
+                                    <td class="px-6 py-4"><a href="slides_ep6.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 6</a></td>
+                                    <td class="px-6 py-4"><a href="assignment6.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 6</a></td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="px-6 py-4 font-medium">EP 7</td>
+                                    <td class="px-6 py-4">The Interface Theory, part 2</td>
+                                    <td class="px-6 py-4"><a href="slides_ep7.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 7</a></td>
+                                    <td class="px-6 py-4"><a href="assignment7.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 7</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Module 3: CMOS, IC and digital design -->
+                <details class="border rounded-lg" open>
+                    <summary class="font-semibold text-lg p-4 bg-gray-100 hover:bg-gray-200 rounded-t-lg">
+                        Module 3: CMOS, IC and digital design
+                    </summary>
+                    <div class="overflow-x-auto border-t">
+                        <table class="min-w-full text-left table-fixed">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 font-semibold w-1/6">Episodes</th>
+                                    <th class="px-6 py-3 font-semibold">Topic</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Slides</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Assignments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4 font-medium">EP 8</td>
+                                    <td class="px-6 py-4">There's Plenty of Room at the Bottom</td>
+                                    <td class="px-6 py-4"><a href="slides_ep8.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 8</a></td>
+                                    <td class="px-6 py-4"><a href="assignment8.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 8</a></td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="px-6 py-4 font-medium">EP 9</td>
+                                    <td class="px-6 py-4">C is for Complementary</td>
+                                    <td class="px-6 py-4"><a href="slides_ep9.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 9</a></td>
+                                    <td class="px-6 py-4"><a href="assignment9.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 9</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Module 4: FPGA, MCU and IDE development -->
+                <details class="border rounded-lg" open>
+                    <summary class="font-semibold text-lg p-4 bg-gray-100 hover:bg-gray-200 rounded-t-lg">
+                        Module 4: FPGA, MCU and IDE development
+                    </summary>
+                    <div class="overflow-x-auto border-t">
+                        <table class="min-w-full text-left table-fixed">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 font-semibold w-1/6">Episodes</th>
+                                    <th class="px-6 py-3 font-semibold">Topic</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Slides</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Assignments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4 font-medium">EP 10</td>
+                                    <td class="px-6 py-4">Programmable Logic</td>
+                                    <td class="px-6 py-4"><a href="slides_ep10.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 10</a></td>
+                                    <td class="px-6 py-4"><a href="assignment10.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 10</a></td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="px-6 py-4 font-medium">EP 11</td>
+                                    <td class="px-6 py-4">System on a Chip</td>
+                                    <td class="px-6 py-4"><a href="slides_ep11.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 11</a></td>
+                                    <td class="px-6 py-4"><a href="assignment11.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 11</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <!-- Module 5: IoT and other smart things -->
+                <details class="border rounded-lg" open>
+                    <summary class="font-semibold text-lg p-4 bg-gray-100 hover:bg-gray-200 rounded-t-lg">
+                        Module 5: IoT and other smart things
+                    </summary>
+                    <div class="overflow-x-auto border-t">
+                        <table class="min-w-full text-left table-fixed">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 font-semibold w-1/6">Episodes</th>
+                                    <th class="px-6 py-3 font-semibold">Topic</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Slides</th>
+                                    <th class="px-6 py-3 font-semibold w-1/4">Assignments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="px-6 py-4 font-medium">EP 12</td>
+                                    <td class="px-6 py-4">The Internet of Things</td>
+                                    <td class="px-6 py-4"><a href="slides_ep12.pdf" class="text-blue-600 hover:underline" target="_blank">Slides 12</a></td>
+                                    <td class="px-6 py-4"><a href="assignment12.pdf" class="text-blue-600 hover:underline" target="_blank">Assignment 12</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
             </div>
         </section>
 
@@ -199,17 +294,26 @@
         <section id="resources" class="mb-12">
             <h2 class="text-2xl font-bold border-b-2 border-blue-500 pb-2 mb-4">Useful Resources</h2>
             <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="mb-6">
+                    <a href="https://coewinmoodle.coe.edu/moodle/course/view.php?id=4633" 
+                       class="inline-block bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-700 transition-colors shadow"
+                       target="_blank"> Upload Assignments to Moodle
+                    </a>
+                    <p class="text-sm mt-2 text-gray-500">
+                        Submit your assignments through the official Moodle course page.
+                    </p>
+                </div>
                 
-        <details class="border-b pb-2">
-    <summary class="font-semibold text-lg text-blue-700 hover:text-blue-800">
-        General Links and References
-    </summary>
-    <ul class="mt-2 pl-4 list-disc list-inside space-y-2 text-gray-700">
-        <li><a href="https://sebastian.itch.io/digital-logic-sim" class="text-blue-600 hover:underline" target="_blank">Digital Logic Sim</a> - An excellent, free digital logic simulator by Sebastian Lague.</li>
-        <li><a href="https://www.desmos.com/calculator" class="text-blue-600 hover:underline" target="_blank">demos graphic calculator</a> - A free online graphic calculator by desmos studio.</li>
-        <li><a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/index.html" class="text-blue-600 hover:underline" target="_blank">Lessons in Electric Circuits, Volume IV - Digital</a> - Online textbooks covering digital electronics by T.R. Kuphaldt</li>        
-    </ul>
-</details>
+                <details class="border-b pb-2">
+                    <summary class="font-semibold text-lg text-blue-700 hover:text-blue-800">
+                        General Links and References
+                    </summary>
+                    <ul class="mt-2 pl-4 list-disc list-inside space-y-2 text-gray-700">
+                        <li><a href="https://sebastian.itch.io/digital-logic-sim" class="text-blue-600 hover:underline" target="_blank">Digital Logic Sim</a> - An excellent, free digital logic simulator by Sebastian Lague.</li>
+                        <li><a href="https://www.desmos.com/calculator" class="text-blue-600 hover:underline" target="_blank">demos graphic calculator</a> - A free online graphic calculator by desmos studio.</li>
+                        <li><a href="https://www.ibiblio.org/kuphaldt/electricCircuits/Digital/index.html" class="text-blue-600 hover:underline" target="_blank">Lessons in Electric Circuits, Volume IV - Digital</a> - Online textbooks covering digital electronics by T.R. Kuphaldt</li>        
+                    </ul>
+                </details>
 
                 <details class="border-b pb-2">
                     <summary class="font-semibold text-lg text-blue-700 hover:text-blue-800">
