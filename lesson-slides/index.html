@@ -1,1 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMed Cabinet System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+        }
+        .status-connected { animation: pulse-green 2s infinite; }
+        
+        /* Animations */
+        @keyframes flash-success { 0% { background-color: #059669; } 100% { background-color: transparent; } }
+        @keyframes flash-error { 0% { background-color: #dc2626; } 100% { background-color: transparent; } }
+        .flash-success { animation: flash-success 1s ease-out; }
+        .flash-error { animation: flash-error 1s ease-out; }
 
+        /* Modal transition */
+        .modal { transition: opacity 0.3s ease-in-out; opacity: 0; pointer-events: none; }
+        .modal.active { opacity: 1; pointer-events: auto; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 h-screen flex flex-col overflow-hidden font-sans">
+
+    <!-- Header -->
+    <header class="p-4 bg-slate-800 shadow-lg border-b border-slate-700 flex justify-between items-center z-10">
+        <div class="flex items-center gap-3">
+            <div class="bg-blue-600 p-2 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-white tracking-wide">SmartMed Cabinet</h1>
+                <p class="text-slate-400 text-xs uppercase tracking-wider">Secure Patient Access System</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <div id="statusIndicator" class="w-3 h-3 rounded-full bg-red-500"></div>
+            <button id="connectBtn" class="bg-slate-700 hover:bg-slate-600 border border-slate-600 text-white px-4 py-2 rounded-lg font-medium transition shadow-lg text-sm flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Connect Hardware
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex gap-6 p-6 overflow-hidden relative">
+        
+        <!-- Left Col: Scanner & Current Status -->
+        <section class="w-1/3 flex flex-col gap-6">
+            
+            <!-- Status Card -->
+            <div id="scanCard" class="bg-slate-800 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center text-center transition-colors duration-300">
+                <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">System Status</h2>
+                
+                <div id="statusIcon" class="bg-slate-900 p-6 rounded-full mb-4 border border-slate-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4h2v-4zM6 16H4v4h2v-4zm0-12H4v1m16 0h-2v1m-6-1H6v1" />
+                    </svg>
+                </div>
+                
+                <div id="mainMessage" class="text-3xl font-bold text-white mb-2">Ready to Scan</div>
+                <div id="subMessage" class="text-slate-400 text-sm">Waiting for barcode input...</div>
+            </div>
+
+            <!-- Database Reference -->
+            <div class="bg-slate-800 p-4 rounded-xl shadow-lg border border-slate-700 flex-1 flex flex-col overflow-hidden">
+                <h3 class="text-slate-300 font-semibold mb-3 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    Registered Patients
+                </h3>
+                <div class="overflow-y-auto pr-2">
+                    <table class="w-full text-left text-sm">
+                        <thead class="text-slate-500 border-b border-slate-700">
+                            <tr>
+                                <th class="pb-2">Name</th>
+                                <th class="pb-2">Drawer</th>
+                                <th class="pb-2 text-right">Type</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientTableBody" class="text-slate-300 divide-y divide-slate-700">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Col: Access Logs & Manual Control -->
+        <section class="flex-1 flex flex-col gap-6">
+            
+            <!-- Access Log -->
+            <div class="bg-slate-800 p-4 rounded-xl shadow-lg border border-slate-700 flex-1 flex flex-col overflow-hidden">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-slate-300 font-semibold flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        Access Log
+                    </h3>
+                    <button onclick="clearLogs()" class="text-xs text-slate-500 hover:text-white">Clear History</button>
+                </div>
+                
+                <div class="bg-slate-900 rounded-lg flex-1 overflow-y-auto border border-slate-700 p-2">
+                    <table class="w-full text-left text-sm">
+                        <thead class="text-slate-500 border-b border-slate-800 sticky top-0 bg-slate-900">
+                            <tr>
+                                <th class="p-2">Time</th>
+                                <th class="p-2">Event</th>
+                                <th class="p-2">Drawer</th>
+                                <th class="p-2 text-right">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logTableBody" class="text-slate-300 divide-y divide-slate-800">
+                            <!-- Logs go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Manual Override (Admin) -->
+            <div class="bg-slate-800 p-4 rounded-xl shadow-lg border border-slate-700 h-1/3">
+                <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Admin Override</h3>
+                <div class="grid grid-cols-4 gap-4 h-full pb-6">
+                    <button onclick="manualOpen(1)" class="bg-slate-700 hover:bg-blue-600 transition rounded-lg border border-slate-600 flex flex-col items-center justify-center gap-1 group"><span class="text-2xl font-bold text-white">1</span></button>
+                    <button onclick="manualOpen(2)" class="bg-slate-700 hover:bg-blue-600 transition rounded-lg border border-slate-600 flex flex-col items-center justify-center gap-1 group"><span class="text-2xl font-bold text-white">2</span></button>
+                    <button onclick="manualOpen(3)" class="bg-slate-700 hover:bg-blue-600 transition rounded-lg border border-slate-600 flex flex-col items-center justify-center gap-1 group"><span class="text-2xl font-bold text-white">3</span></button>
+                    <button onclick="manualOpen(4)" class="bg-slate-700 hover:bg-blue-600 transition rounded-lg border border-slate-600 flex flex-col items-center justify-center gap-1 group"><span class="text-2xl font-bold text-white">4</span></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL: Witness & Inventory -->
+        <div id="authModal" class="modal fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
+            <div class="bg-slate-800 border border-slate-600 p-8 rounded-2xl shadow-2xl max-w-lg w-full">
+                
+                <!-- Step 1: Witness Scan -->
+                <div id="stepWitness">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white">Double Verification Required</h2>
+                        <p class="text-slate-400 mt-2">Controlled Substance Access.</p>
+                        <p class="text-amber-400 font-mono mt-1 font-bold animate-pulse">WAITING FOR WITNESS BADGE SCAN...</p>
+                    </div>
+                    <button onclick="cancelAuth()" class="w-full py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-300 font-medium">Cancel</button>
+                </div>
+
+                <!-- Step 2: Inventory Input -->
+                <div id="stepInventory" class="hidden">
+                    <div class="text-center mb-6">
+                        <h2 class="text-xl font-bold text-white">Inventory Log</h2>
+                        <p class="text-slate-400 text-sm">Witness Verified: <span id="witnessName" class="text-green-400"></span></p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs uppercase text-slate-500 font-bold mb-1">Amount Taken Out</label>
+                            <input type="number" id="inputTaken" class="w-full bg-slate-900 border border-slate-700 rounded p-3 text-white focus:border-blue-500 outline-none" placeholder="e.g., 1">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase text-slate-500 font-bold mb-1">Amount Returned/Restocked</label>
+                            <input type="number" id="inputReturned" class="w-full bg-slate-900 border border-slate-700 rounded p-3 text-white focus:border-blue-500 outline-none" placeholder="e.g., 0">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <button onclick="cancelAuth()" class="py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-300 font-medium">Cancel</button>
+                        <button onclick="confirmInventory()" class="py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg">Confirm & Open</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- Data ---
+        const patientDB = {
+            "10001": { name: "John Doe", drawer: 1, controlled: false },
+            "10002": { name: "Sarah Connor", drawer: 2, controlled: false },
+            "10003": { name: "Bruce Wayne", drawer: 3, controlled: false },
+            "10004": { name: "Diana Prince", drawer: 4, controlled: true }, // Controlled
+            "10005": { name: "Clark Kent", drawer: 4, controlled: true },  // Controlled
+        };
+
+        const clinicianDB = {
+            "DOC01": { name: "Dr. Strange", role: "Physician" },
+            "RN01":  { name: "Nurse Joy", role: "RN" },
+            "RN02":  { name: "Nurse Ratched", role: "Head Nurse" }
+        };
+
+        // --- State ---
+        let port, writer;
+        let inputBuffer = "";
+        let lastKeyTime = Date.now();
+        
+        // Auth State
+        let systemState = "IDLE"; // IDLE, WITNESS_WAIT, INVENTORY_WAIT
+        let pendingPatient = null;
+        let pendingWitness = null;
+
+        // --- Init ---
+        function init() {
+            renderPatientTable();
+            addLog("System", "Initialized", "-", "Ready");
+        }
+
+        function renderPatientTable() {
+            const tbody = document.getElementById('patientTableBody');
+            tbody.innerHTML = Object.entries(patientDB).map(([code, data]) => `
+                <tr class="hover:bg-slate-700/50 transition">
+                    <td class="py-2 font-medium text-white">${data.name}</td>
+                    <td class="py-2"><span class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded">Drwr ${data.drawer}</span></td>
+                    <td class="py-2 text-right">
+                        ${data.controlled 
+                            ? '<span class="bg-amber-900 text-amber-200 text-xs px-2 py-1 rounded font-bold">CONTROLLED</span>' 
+                            : '<span class="text-slate-500 text-xs">Standard</span>'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // --- Scan Logic ---
+        document.addEventListener('keydown', (e) => {
+            const currentTime = Date.now();
+            if (currentTime - lastKeyTime > 100) inputBuffer = "";
+            lastKeyTime = currentTime;
+
+            if (e.key === 'Enter') {
+                if (inputBuffer.length > 0) {
+                    handleScan(inputBuffer);
+                    inputBuffer = "";
+                }
+            } else if (e.key.length === 1) {
+                inputBuffer += e.key;
+            }
+        });
+
+        function handleScan(code) {
+            console.log(`State: ${systemState}, Scanned: ${code}`);
+
+            if (systemState === "IDLE") {
+                // Expecting Patient Scan
+                const patient = patientDB[code];
+                if (patient) {
+                    if (patient.controlled) {
+                        // Start Controlled Flow
+                        pendingPatient = patient;
+                        startWitnessFlow();
+                    } else {
+                        // Standard Flow
+                        grantAccess(patient, "Routine Access");
+                    }
+                } else {
+                    showError("Unknown Barcode");
+                    addLog("Unknown", "Scan Rejected", code, "DENIED");
+                }
+            } 
+            else if (systemState === "WITNESS_WAIT") {
+                // Expecting Clinician Scan
+                const clinician = clinicianDB[code];
+                if (clinician) {
+                    pendingWitness = clinician;
+                    showInventoryForm();
+                } else {
+                    // Flash red in modal?
+                    alert("Invalid Witness Badge. Try again."); 
+                }
+            }
+        }
+
+        // --- Workflow Functions ---
+
+        function startWitnessFlow() {
+            systemState = "WITNESS_WAIT";
+            document.getElementById('authModal').classList.add('active');
+            document.getElementById('stepWitness').classList.remove('hidden');
+            document.getElementById('stepInventory').classList.add('hidden');
+        }
+
+        function showInventoryForm() {
+            systemState = "INVENTORY_WAIT";
+            document.getElementById('stepWitness').classList.add('hidden');
+            document.getElementById('stepInventory').classList.remove('hidden');
+            document.getElementById('witnessName').textContent = pendingWitness.name;
+            document.getElementById('inputTaken').focus();
+        }
+
+        function confirmInventory() {
+            const taken = document.getElementById('inputTaken').value || "0";
+            const returned = document.getElementById('inputReturned').value || "0";
+            
+            // Close Modal
+            cancelAuth();
+
+            // Grant Access with extra info
+            grantAccess(pendingPatient, `Witness: ${pendingWitness.name} | Out: ${taken}, In: ${returned}`);
+        }
+
+        function cancelAuth() {
+            systemState = "IDLE";
+            pendingPatient = null;
+            pendingWitness = null;
+            document.getElementById('authModal').classList.remove('active');
+            document.getElementById('inputTaken').value = "";
+            document.getElementById('inputReturned').value = "";
+        }
+
+        function grantAccess(patient, details) {
+            const scanCard = document.getElementById('scanCard');
+            const mainMsg = document.getElementById('mainMessage');
+            const subMsg = document.getElementById('subMessage');
+
+            // UI Feedback
+            scanCard.className = "bg-emerald-900/40 p-6 rounded-xl shadow-xl border border-emerald-500/50 flex flex-col items-center text-center flash-success";
+            mainMsg.textContent = "ACCESS GRANTED";
+            mainMsg.className = "text-3xl font-bold text-emerald-400 mb-2";
+            subMsg.innerHTML = `Patient: <strong class="text-white">${patient.name}</strong><br>Opening Drawer ${patient.drawer}...`;
+            
+            // Hardware Action
+            sendToPico(`OPEN:${patient.drawer}`);
+            
+            // Log
+            addLog(patient.name, "Access Authorized", `Drawer ${patient.drawer}`, details);
+
+            // Auto-close
+            setTimeout(() => {
+                resetCard();
+                sendToPico(`CLOSE:${patient.drawer}`);
+            }, 5000);
+        }
+
+        function showError(msg) {
+            const scanCard = document.getElementById('scanCard');
+            const mainMsg = document.getElementById('mainMessage');
+            
+            scanCard.className = "bg-red-900/40 p-6 rounded-xl shadow-xl border border-red-500/50 flex flex-col items-center text-center flash-error";
+            mainMsg.textContent = "ACCESS DENIED";
+            mainMsg.className = "text-3xl font-bold text-red-500 mb-2";
+            document.getElementById('subMessage').textContent = msg;
+            setTimeout(resetCard, 2000);
+        }
+
+        function resetCard() {
+            const scanCard = document.getElementById('scanCard');
+            const mainMsg = document.getElementById('mainMessage');
+            
+            scanCard.className = "bg-slate-800 p-6 rounded-xl shadow-xl border border-slate-700 flex flex-col items-center text-center transition-colors duration-500";
+            mainMsg.textContent = "Ready to Scan";
+            mainMsg.className = "text-3xl font-bold text-white mb-2";
+            document.getElementById('subMessage').textContent = "Waiting for barcode input...";
+        }
+
+        // --- Hardware & Logging ---
+
+        const connectBtn = document.getElementById('connectBtn');
+        const statusIndicator = document.getElementById('statusIndicator');
+
+        connectBtn.addEventListener('click', async () => {
+            if (!("serial" in navigator)) { alert("Web Serial API not supported."); return; }
+            try {
+                port = await navigator.serial.requestPort();
+                await port.open({ baudRate: 115200 });
+                statusIndicator.className = "w-3 h-3 rounded-full bg-green-500 status-connected";
+                connectBtn.innerHTML = `<span class="text-green-400">●</span> Hardware Active`;
+                
+                const textEncoder = new TextEncoderStream();
+                const writableStreamClosed = textEncoder.readable.pipeTo(port.writable);
+                writer = textEncoder.writable.getWriter();
+                addLog("System", "Serial Connected", "-", "Success");
+            } catch (err) { console.error(err); }
+        });
+
+        async function sendToPico(cmd) {
+            if (!writer) return;
+            try { await writer.write(cmd + "\n"); } catch (err) { console.error(err); }
+        }
+
+        function manualOpen(id) {
+            sendToPico(`OPEN:${id}`);
+            addLog("Admin", "Manual Override", `Drawer ${id}`, "OPEN");
+            setTimeout(() => sendToPico(`CLOSE:${id}`), 3000);
+        }
+
+        function addLog(user, event, detail, status) {
+            const tbody = document.getElementById('logTableBody');
+            const row = document.createElement('tr');
+            row.className = "border-b border-slate-800 last:border-0";
+            
+            const statusColor = status.includes("DENIED") ? "text-red-400" : "text-emerald-400";
+            
+            row.innerHTML = `
+                <td class="p-2 text-slate-500 font-mono text-xs">${new Date().toLocaleTimeString()}</td>
+                <td class="p-2 text-white">${event} <div class="text-xs text-slate-500">${user}</div></td>
+                <td class="p-2 text-slate-400">${detail}</td>
+                <td class="p-2 text-right font-bold text-xs ${statusColor}">${status}</td>
+            `;
+            tbody.insertBefore(row, tbody.firstChild);
+        }
+
+        function clearLogs() { document.getElementById('logTableBody').innerHTML = ""; }
+        
+        init();
+    </script>
+</body>
+</html>
